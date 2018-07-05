@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="ui-g">
+
+    <div class="ui-g-12">
+      <h1>Miniaturas</h1>
+    </div>
+
+    <div class="ui-g-12 ui-fluid">
+      <label style="display: block">Modelo</label>
+      <input pInputText type="text" style="width: 120px">
+    </div>
+
+    <div class="ui-g-12">
+      <label style="display: block">Coleção</label>
+      <input pInputText type="text" style="width: 120px">
+
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Pesquisar"></button>
+    </div>
+    </div>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-dataTable [value]="miniaturas" [paginator]="true" [rows]="5" [responsive]="true">
+          <p-column field="modelo" header="Modelo"></p-column>
+          <p-column field="marca" header="Marca"></p-column>
+          <p-column field="colecao" header="Colecao"> </p-column>
+          <p-column field="escala" header="Escala" styleClass="col-data"></p-column>
+          <p-column field="ano" header="Ano" ></p-column>
+                  <p-column styleClass="col-acoes">
+            <ng-template pTemplate="body">
+              <a pButton icon="fa-pencil" pTooltip="Editar" position="tooltipTop"></a>
+              <button pButton icon="fa-trash" pTooltip="Excluir" position="tooltipTop"></button>
+            </ng-template>
+        </p-column>
+        </p-dataTable>
+  
+      </div>
+  
+    </div>
+  
+  </div>
