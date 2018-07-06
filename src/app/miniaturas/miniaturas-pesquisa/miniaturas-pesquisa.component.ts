@@ -1,4 +1,4 @@
-import { MiniaturaService } from './../miniatura.service';
+import { MiniaturaService } from '../miniatura.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

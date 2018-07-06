@@ -5,20 +5,26 @@ import { AppComponent } from './app.component';
 import {  ButtonModule } from 'primeng/components/button/button';
 import { DataTableModule } from 'primeng/components/datatable/datatable';
 import { TooltipModule } from 'primeng/components/tooltip/tooltip';
-
+import { ToastyModule } from 'ng2-toasty';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpModule } from '@angular/http';
 import { MiniaturasPesquisaComponent } from './miniaturas/miniaturas-pesquisa/miniaturas-pesquisa.component';
-import { MiniaturaService } from './miniaturas/miniatura.service';
 import { MiniaturaCadastroComponent } from './miniaturas/miniatura-cadastro/miniatura-cadastro.component';
-
+import { FormsModule } from '@angular/forms';
+import { Routes, RouteConfigLoadEnd, Router, RouterModule } from '@angular/router'
+const routes: Routes = [
+  { path: 'miniaturas', component: MiniaturasPesquisaComponent },
+  { path: 'miniaturas/novo', component: MiniaturaCadastroComponent }
+  
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     MiniaturasPesquisaComponent,
     NavbarComponent,
-    MiniaturaCadastroComponent
+    MiniaturaCadastroComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -26,9 +32,12 @@ import { MiniaturaCadastroComponent } from './miniaturas/miniatura-cadastro/mini
     ButtonModule,
     DataTableModule,
     TooltipModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ToastyModule,
+    RouterModule.forRoot(routes),
   ],
-  providers: [MiniaturaService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

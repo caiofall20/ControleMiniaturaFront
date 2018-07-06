@@ -1,5 +1,6 @@
 <div class="container">
-    <form>
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+
   
       <div class="ui-g">
         <div class="ui-g-12">
@@ -8,27 +9,27 @@
   
         <div class="ui-g-6 ui-md-3 ui-fluid">
           <label>Modelo</label>
-          <input pInputText type="text">
+          <input pInputText type="text" name="modelo" [(ngModel)]="miniatura.modelo">
         </div>
         <div class="ui-g-6 ui-md-3 ui-fluid">
           <label>Marca</label>
-          <input pInputText type="text">
+          <input pInputText type="text" name="marca" [(ngModel)]="miniatura.marca">
         </div>
         <div class="ui-g-12 ui-md-9 ui-fluid">
           <label>Coleção</label>
-          <input pInputText type="text">
+          <input pInputText type="text" name="colecao" [(ngModel)]="miniatura.colecao">
         </div>
         <div class="ui-g-12 ui-md-3 ui-fluid">
           <label>Escala</label>
-          <input pInputText type="text" >
+          <input pInputText type="text"[(ngModel)]="miniatura.escala" name="escala" >
         </div>
         <div class="ui-g-12 ui-md-6 ui-fluid">
           <label>Ano</label>
-          <input pInputText type="text">
+          <input pInputText type="text" [(ngModel)]="miniatura.ano" name="ano">
         </div>
     
         <div class="ui-g-12">
-          <button pButton type="submit" label="Salvar"></button>
+          <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
           <button pButton type="button" label="Novo" class="ui-button-info"></button>
           <a href="javascript:;">Voltar para a pesquisa</a>
         </div>
