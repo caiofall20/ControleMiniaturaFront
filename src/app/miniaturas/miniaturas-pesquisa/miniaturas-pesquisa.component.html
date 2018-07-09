@@ -20,7 +20,7 @@
     </div>
     <div class="ui-g">
       <div class="ui-g-12">
-        <p-dataTable [value]="miniaturas" [paginator]="true" [rows]="5" [responsive]="true">
+        <p-dataTable #miniatura [value]="miniaturas" [paginator]="true" [rows]="5" [responsive]="true">
           <p-column field="modelo" header="Modelo"></p-column>
           <p-column field="marca" header="Marca"></p-column>
           <p-column field="colecao" header="Colecao"> </p-column>
@@ -28,8 +28,8 @@
           <p-column field="ano" header="Ano" ></p-column>
                   <p-column styleClass="col-acoes">
             <ng-template pTemplate="body">
-              <a pButton icon="fa-pencil" pTooltip="Editar" position="tooltipTop"></a>
-              <button pButton icon="fa-trash" pTooltip="Excluir" position="tooltipTop"></button>
+              <a pButton icon="fa fa-pencil" pTooltip="Editar" position="tooltipTop"></a>
+              <button pButton icon="fa fa-trash" pTooltip="Excluir" position="tooltipTop"  (click)="excluir(miniatura)"></button>
             </ng-template>
         </p-column>
         </p-dataTable>

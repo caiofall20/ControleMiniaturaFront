@@ -1,6 +1,7 @@
 import { MiniaturaService } from '../miniatura.service';
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ToastyService } from 'ng2-toasty';
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 @Component({
   selector: 'app-miniaturas-pesquisa',
   templateUrl: './miniaturas-pesquisa.component.html',
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiniaturasPesquisaComponent implements OnInit {
   miniaturas = [];
+  @ViewChild('tabela') grid;
 
-  constructor(private miniaturaService: MiniaturaService) {}
+  constructor(private miniaturaService: MiniaturaService, private toasty: ToastyService,private confirmation: ConfirmationService) {}
 
   ngOnInit(){
     this.pesquisar();
@@ -19,4 +21,20 @@ export class MiniaturasPesquisaComponent implements OnInit {
     this.miniaturaService.pesquisar()
     .then(miniaturas => this.miniaturas = miniaturas)
   }
+
+  excluir(miniatura: any){
+    this.miniaturaService.excluir(miniatura.id)
+    .then(() => {
+      this.grid.first = 0;
+    });
+}
+confirmarExclusao(miniatura: any) {
+  this.confirmation.confirm({
+    message:'Tem certeza que deseja excluir?',
+    accept: () => {
+      this.excluir(miniatura);
+    
+    },
+  });
+}
 }

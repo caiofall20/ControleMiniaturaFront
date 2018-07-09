@@ -24,5 +24,11 @@ export class MiniaturaService {
     .toPromise()
     .then(response => response.json());
   }
+excluir(id: number): Promise<void> {
 
+  return this.http.delete(`${this.miniaturasUrl}/carrinho/${id}`)
+  .toPromise()
+  .then(() => null);
+
+}
 }

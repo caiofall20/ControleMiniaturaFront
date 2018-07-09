@@ -12,6 +12,7 @@ import { MiniaturasPesquisaComponent } from './miniaturas/miniaturas-pesquisa/mi
 import { MiniaturaCadastroComponent } from './miniaturas/miniatura-cadastro/miniatura-cadastro.component';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouteConfigLoadEnd, Router, RouterModule } from '@angular/router'
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 const routes: Routes = [
   { path: 'miniaturas', component: MiniaturasPesquisaComponent },
   { path: 'miniaturas/novo', component: MiniaturaCadastroComponent }
@@ -37,7 +38,7 @@ const routes: Routes = [
     ToastyModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
