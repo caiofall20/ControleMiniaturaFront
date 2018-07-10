@@ -11,30 +11,29 @@ export class MiniaturasPesquisaComponent implements OnInit {
   miniaturas = [];
   @ViewChild('tabela') grid;
 
-  constructor(private miniaturaService: MiniaturaService, private toasty: ToastyService,private confirmation: ConfirmationService) {}
+  constructor(private miniaturaService: MiniaturaService, private toasty: ToastyService, private confirmation: ConfirmationService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.pesquisar();
   }
 
   pesquisar() {
     this.miniaturaService.pesquisar()
-    .then(miniaturas => this.miniaturas = miniaturas)
+      .then(miniaturas => this.miniaturas = miniaturas)
   }
 
-  excluir(miniatura: any){
+ 
+  excluir(miniatura: any) {
     this.miniaturaService.excluir(miniatura.id)
     .then(() => {
-      this.grid.first = 0;
+      if (this.grid.first === 0) {
+        this.pesquisar();
+      } else {
+        this.grid.first = 0;
+      }
+
+      this.toasty.success('Lançamento excluído com sucesso!');
     });
 }
-confirmarExclusao(miniatura: any) {
-  this.confirmation.confirm({
-    message:'Tem certeza que deseja excluir?',
-    accept: () => {
-      this.excluir(miniatura);
-    
-    },
-  });
-}
+
 }

@@ -27,9 +27,9 @@
           <p-column field="escala" header="Escala" styleClass="col-data"></p-column>
           <p-column field="ano" header="Ano" ></p-column>
                   <p-column styleClass="col-acoes">
-            <ng-template pTemplate="body">
+            <ng-template let-mini="rowData" pTemplate="body">
               <a pButton icon="fa fa-pencil" pTooltip="Editar" position="tooltipTop"></a>
-              <button pButton icon="fa fa-trash" pTooltip="Excluir" position="tooltipTop"  (click)="excluir(miniatura)"></button>
+              <button pButton icon="fa fa-trash" pTooltip="Excluir" position="tooltipTop"  (click)="excluir(mini)"></button>
             </ng-template>
         </p-column>
         </p-dataTable>

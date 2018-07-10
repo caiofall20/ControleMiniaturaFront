@@ -35,7 +35,7 @@ const routes: Routes = [
     TooltipModule,
     HttpModule,
     FormsModule,
-    ToastyModule,
+    ToastyModule.forRoot(),
     RouterModule.forRoot(routes),
   ],
   providers: [ConfirmationService],

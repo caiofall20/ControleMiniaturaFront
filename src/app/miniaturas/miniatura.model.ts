@@ -1,5 +1,5 @@
 export class Miniatura {
-
+    id: string;
     modelo: string;
     marca: string;
     colecao: string;
