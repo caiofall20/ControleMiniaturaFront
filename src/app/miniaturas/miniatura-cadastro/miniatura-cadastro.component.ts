@@ -25,7 +25,7 @@ export class MiniaturaCadastroComponent implements OnInit {
   salvar(form: FormControl) {
     this.miniaturaService.adicionar(this.miniatura)
     .then(() => {
-      this.toasty.success('Lançamento adicionado com sucesso!');
+      this.toasty.success('Miniatura adicionada com sucesso!');
 
       form.reset();
       this.miniatura = new Miniatura();

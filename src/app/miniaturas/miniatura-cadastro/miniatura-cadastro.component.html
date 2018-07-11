@@ -15,22 +15,22 @@
           <label>Marca</label>
           <input pInputText type="text" name="marca" [(ngModel)]="miniatura.marca">
         </div>
-        <div class="ui-g-12 ui-md-9 ui-fluid">
+        <div class="ui-g-6 ui-md-3 ui-fluid">
           <label>Coleção</label>
           <input pInputText type="text" name="colecao" [(ngModel)]="miniatura.colecao">
         </div>
-        <div class="ui-g-12 ui-md-3 ui-fluid">
+        <div class="ui-g-6 ui-md-3 ui-fluid">
           <label>Escala</label>
           <input pInputText type="text"[(ngModel)]="miniatura.escala" name="escala" >
         </div>
-        <div class="ui-g-12 ui-md-6 ui-fluid">
+        <div class="ui-g-6 ui-md-3 ui-fluid">
           <label>Ano</label>
           <input pInputText type="text" [(ngModel)]="miniatura.ano" name="ano">
         </div>
     
         <div class="ui-g-12">
           <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
-          <button pButton type="button" label="Novo" class="ui-button-info"></button>
+          <button id="novo" pButton type="button" label="Novo" class="ui-button-info"></button>
           <a pButton label="Voltar para a lista" routerLink="/miniaturas"></a>
         </div>
       </div>

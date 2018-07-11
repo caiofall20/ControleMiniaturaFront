@@ -13,9 +13,11 @@ import { MiniaturaCadastroComponent } from './miniaturas/miniatura-cadastro/mini
 import { FormsModule } from '@angular/forms';
 import { Routes, RouteConfigLoadEnd, Router, RouterModule } from '@angular/router'
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: 'miniaturas', component: MiniaturasPesquisaComponent },
-  { path: 'miniaturas/novo', component: MiniaturaCadastroComponent }
+  { path: 'miniaturas/novo', component: MiniaturaCadastroComponent },
+  { path: 'inicio', component: HomeComponent }
   
 ];
 
@@ -25,6 +27,7 @@ const routes: Routes = [
     MiniaturasPesquisaComponent,
     NavbarComponent,
     MiniaturaCadastroComponent,
+    HomeComponent,
     
   ],
   imports: [
