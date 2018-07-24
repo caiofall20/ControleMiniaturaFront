@@ -1,0 +1,29 @@
+<section class="content login-content" style="margin: 10% auto">
+  <div class="login-logo">
+       <b>LocaVeiculos</b> | Login
+  </div>
+  <div class="col-xs-12 col-sm-offset-3 col-sm-6 login-box-body">
+  <p class="login-box-msg">Por favor, efetue o login para continuar</p>
+  <div *ngIf="exibirAlerta" class="alert alert-danger" role="alert">
+   Email e senha incorretos!
+  </div>
+  <form [formGroup]="loginForm">
+    <app-input-container [showTip]=false>
+          <input type="email" formControlName="email" placeholder="Email">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </app-input-container>
+        <app-input-container [showTip]=false>
+
+          <input type="password" formControlName="password" placeholder="Password">
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </app-input-container>
+    <div class="row">
+    <!-- /.col -->
+    <div class="col-xs-offset-8 col-xs-4">
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block btn-flat" (click)="autenticar()">Entrar</button>
+    </div>
+    <!-- /.col -->
+    </div>
+  </form>
+  </div>
+</section>
