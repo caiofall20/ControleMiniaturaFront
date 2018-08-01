@@ -48,7 +48,7 @@ const routes: Routes = [
     ToastyModule.forRoot(),
     RouterModule.forRoot(routes),
   ],
-  providers: [ConfirmationService,LoginService],
+  providers: [ConfirmationService,LoginService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

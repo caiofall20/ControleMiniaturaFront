@@ -32,7 +32,7 @@ export class MiniaturasPesquisaComponent implements OnInit {
         this.grid.first = 0;
       }
 
-      this.toasty.success('Lançamento excluído com sucesso!');
+      this.toasty.success('Miniatura excluída com sucesso!');
     });
 }
 
