@@ -9,11 +9,18 @@ import { ConfirmationService } from 'primeng/components/common/confirmationservi
 })
 export class MiniaturasPesquisaComponent implements OnInit {
   miniaturas = [];
+  cols: any[];
   @ViewChild('tabela') grid;
 
   constructor(private miniaturaService: MiniaturaService, private toasty: ToastyService, private confirmation: ConfirmationService) { }
 
   ngOnInit() {
+    this.cols = [
+      { field: 'modelo', header: 'Modelo' },
+      { field: 'marca', header: 'Marca' },
+      { field: 'escala', header: 'Escala' },
+      { field: 'ano', header: 'Ano' }
+  ];
     this.pesquisar();
   }
 

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Usuario } from './usuario.model';
 import { LoginService } from 'src/app/login/login.service';
+import { ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   usuario: Usuario;
   exibirAlerta: boolean = false;
   loginForm: FormGroup
-  constructor(private fb: FormBuilder,private loginService: LoginService) { }
+  constructor(private fb: FormBuilder,private loginService: LoginService,private toasty: ToastyService) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
