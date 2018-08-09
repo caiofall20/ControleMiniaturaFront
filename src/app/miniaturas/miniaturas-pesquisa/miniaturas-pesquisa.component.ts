@@ -29,6 +29,14 @@ export class MiniaturasPesquisaComponent implements OnInit {
       .then(miniaturas => this.miniaturas = miniaturas)
   }
 
+  confirmarExclusao(miniatura: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(miniatura);
+      }
+    });
+  }
  
   excluir(miniatura: any) {
     this.miniaturaService.excluir(miniatura.id)
