@@ -1,5 +1,6 @@
 import { LoginService } from './login/login.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import { AppComponent } from './app.component';
@@ -46,6 +47,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     InputTextModule,
     ButtonModule,
     DataTableModule,
