@@ -7,26 +7,32 @@ import { ToastyService } from 'ng2-toasty';
 })
 export class MiniaturaService {
 
-  miniaturasUrl = 'http://localhost:8080/colecao/rest/carrinho';
+  miniaturasUrl = 'https://miniatura-api.herokuapp.com/carrinhos';
 
   constructor(private http: Http, private miniaturaService : MiniaturaService,private toasty: ToastyService,) { }
 
   pesquisar(): Promise<any> {
     
 
-    return this.http.get(`${this.miniaturasUrl}?carrinho`)
+    return this.http.get(`${this.miniaturasUrl}`)
       .toPromise()
       .then(response => response.json())
   }
 
+  getCarsSmall() {
+    return this.http.get(`${this.miniaturasUrl}`)
+      .toPromise()
+      .then(response => response.json())
+    }
+
   adicionar(miniatura: Miniatura): Promise<Miniatura> {
-    return this.http.post('http://localhost:8080/colecao/rest/carrinho/carrinho', miniatura)
+    return this.http.post('https://miniatura-api.herokuapp.com/carrinhos', miniatura)
     .toPromise()
     .then(response => response.json());
   }
 excluir(id: number): Promise<void> {
 
-  return this.http.delete(`${this.miniaturasUrl}/carrinho/${id}`)
+  return this.http.delete(`${this.miniaturasUrl}${id}`)
   .toPromise()
   .then(() => null);
 

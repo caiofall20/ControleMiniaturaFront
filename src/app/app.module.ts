@@ -20,11 +20,14 @@ import { AuthGuard } from './login/auth.guard';
 import {TableModule} from 'primeng/table';
 import {SliderModule} from 'primeng/slider';
 import {DropdownModule} from 'primeng/dropdown';
+import {DialogModule} from 'primeng/dialog';
 import {MultiSelectModule} from 'primeng/multiselect';
+import { MiniaturaControleComponent } from './miniaturas/miniatura-controle/miniatura-controle.component';
 const routes: Routes = [
-  { path: 'inicio', component:HomeComponent,canActivate:[AuthGuard]},
-  { path: 'miniaturas', component: MiniaturasPesquisaComponent,canActivate:[AuthGuard]},
-  { path: 'miniaturas/novo', component: MiniaturaCadastroComponent,canActivate:[AuthGuard]},
+  { path: 'inicio', component:HomeComponent},
+  { path: 'miniaturas', component: MiniaturasPesquisaComponent},
+  { path: 'miniaturas/novo', component: MiniaturaCadastroComponent},
+  { path: 'controle', component: MiniaturaControleComponent},
   { path: 'login', component:LoginComponent},
   {path: '', redirectTo:"login", pathMatch:"full"},
   
@@ -38,6 +41,7 @@ const routes: Routes = [
     MiniaturaCadastroComponent,
     HomeComponent,
     LoginComponent,
+    MiniaturaControleComponent,
     
   ],
   imports: [
@@ -48,6 +52,7 @@ const routes: Routes = [
     TableModule,
     SliderModule,
     DropdownModule,
+    DialogModule,
     MultiSelectModule,
     TooltipModule,
     HttpModule,
