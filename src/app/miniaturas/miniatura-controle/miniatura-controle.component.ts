@@ -1,6 +1,7 @@
 import { Miniatura } from './../miniatura.model';
 import { Component, OnInit } from '@angular/core';
 import { MiniaturaService } from '../miniatura.service';
+import { ToastyService } from 'ng2-toasty';
 
 @Component({
   selector: 'app-miniatura-controle',
@@ -8,10 +9,11 @@ import { MiniaturaService } from '../miniatura.service';
   styleUrls: ['./miniatura-controle.component.css']
 })
 export class MiniaturaControleComponent implements OnInit {
+miniatura = new Miniatura();
 
   displayDialog: boolean;
  
-  miniaturas : Miniatura = {};
+  car : Miniatura = {};
 
   selectedCar: Miniatura;
 
@@ -21,7 +23,7 @@ export class MiniaturaControleComponent implements OnInit {
 
   cols: any[];
 
-  constructor(private miniaturaService: MiniaturaService) { }
+  constructor(private miniaturaService: MiniaturaService,  private toasty: ToastyService) { }
 
   ngOnInit() {
       this.miniaturaService.getCarsSmall().then(cars => this.cars = cars);
@@ -36,32 +38,37 @@ export class MiniaturaControleComponent implements OnInit {
 
   showDialogToAdd() {
       this.newCar = true;
-      this.miniaturas = {};
+      this.car = {};
       this.displayDialog = true;
   }
 
   save() {
-      let cars = [...this.cars];
-      if (this.newCar)
-          cars.push(this.miniaturas);
-      else
-          cars[this.cars.indexOf(this.selectedCar)] = this.miniaturas;
+    this.miniaturaService.adicionar(this.miniatura)
+    .then(() => {
+      this.toasty.success('Miniatura adicionada com sucesso!');     
+      this.miniatura = new Miniatura();
+    })
+    //   let cars = [...this.cars];
+    //   if (this.newCar)
+    //       cars.push(this.car);
+    //   else
+    //       cars[this.cars.indexOf(this.selectedCar)] = this.car;
 
-      this.cars = cars;
-      this.miniaturas = null;
-      this.displayDialog = false;
+    //   this.cars = cars;
+    //   this.car = null;
+    //   this.displayDialog = false;
   }
 
   delete() {
       let index = this.cars.indexOf(this.selectedCar);
       this.cars = this.cars.filter((val, i) => i != index);
-      this.miniaturas = null;
+      this.car = null;
       this.displayDialog = false;
   }
 
   onRowSelect(event) {
       this.newCar = false;
-      this.miniaturas = this.cloneCar(event.data);
+      this.car = this.cloneCar(event.data);
       this.displayDialog = true;
   }
 
