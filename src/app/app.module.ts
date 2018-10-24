@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'miniaturas/novo', component: MiniaturaCadastroComponent},
   { path: 'controle', component: MiniaturaControleComponent},
   { path: 'login', component:LoginComponent},
-  {path: '', redirectTo:"login", pathMatch:"full"},
+  {path: '', redirectTo:"inicio", pathMatch:"full"},
   
 ];
 
